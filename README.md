@@ -100,6 +100,6 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the elk-1.yml file to /etc/ansible directory.
 - Update the hosts file to include the hosts/machines you want to run the ansible playbook on. In order to specify which machines the playbook will run on, we need to define groups in the hosts file and list the IP adresses of the machines under each group accordingly. for example the elk-1.yml playbook should be run on Web-1 and Web2 VMs, in the hosts file we add the IP addresses of Web-1 and Web-2 under the [webservers] group. This way when elk-1.yml is executed, only machines under [webserver] group will be effected. same thing applies on the ELK instance/machine.
-- Run the playbook, and navigate to the ELK server from your web browser by typing "http://Ip-adress-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
+- Run the playbook, and navigate to the ELK server from your web browser by typing "http://IP-Address-of-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
 
 
