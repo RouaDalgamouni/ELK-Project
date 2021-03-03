@@ -68,7 +68,6 @@ Ansible is used to automate configuration of the ELK machine. No configuration w
 
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Install Docker.io on ELK VMs using the Apt module
 - Install Python3-pip on ELK VMs using the apt module
 - Install Docker on ELK VMs using the pip module
@@ -104,4 +103,3 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to the ELK server from your web browser by typing "http://Ip-adress-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
