@@ -23,8 +23,8 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly Available, in addition to restricting access to the network.
 
-Loadbalancers are crutial component in any secure network architecture due the security measures they bring to the network architecture. Loadbalancer will protect applications from any emerging threats, DoS attacks, and make sure the traffic is distributed among multiple servers to ensure availability, and enhance security by having the inbound traffic passes through the policies on the loadbalancer before being distibiuted further to the servers in the backend pool of the loadbalance
-.
+Loadbalancers are crutial component in any secure network architecture due the security measures they bring to the network architecture. Loadbalancer will protect applications from any emerging threats, DoS attacks, and make sure the traffic is distributed among multiple servers to ensure availability, and enhance security by having the inbound traffic passes through the policies on the loadbalancer before being distibiuted further to the servers in the backend pool of the loadbalance.
+
 additionally we added a jump-box-provisioner VM which introduces another layer of security to the network architecture. The purpose of this jump box is to prevent any inbound traffic to the Web Vms directly. Any connection to the VMs can only be achived through the jump-box-provisioner VM.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file system and periodically collect metrics from the operating system and from services running on the server (VM) .
@@ -48,7 +48,7 @@ The machines on the internal network are not exposed to the public Internet.
 Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: My_Personal_Machine_IP_Address (60.20.26.168)
 
 Machines within the network can only be accessed by Jump-Box-Provisioner.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+
 - Jump-Box-Provisioner with Ansible container instaleed on it, is the only machine allowed to access the ELK VMs 
 
 A summary of the access policies in place can be found in the table below.
@@ -63,7 +63,6 @@ A summary of the access policies in place can be found in the table below.
 
 |### Elk Configuration
 
-- _TODO: What is the main advantage of automating configuration with Ansible?_
 Ansible is used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it is simple, easy to be read by human, easy to write as it does not require coding skills, it is powerful as it helps IT admins to integrate and deploy apps, and mange configuration smoothly and easily, as easy as one click. Which in return increase the productivity and boost productions since it saves a lot of time and effort compared to manual deployment.
 
 
@@ -104,9 +103,5 @@ SSH into the control node and follow the steps below:
 - Update the hosts file to include the hosts/machines you want to run the ansible playbook on. In order to specify which machines the playbook will run on, we need to define groups in the hosts file and list the IP adresses of the machines under each group accordingly. for example the elk-1.yml playbook should be run on Web-1 and Web2 VMs, in the hosts file we add the IP addresses of Web-1 and Web-2 under the [webservers] group. This way when elk-1.yml is executed, only machines under [webserver] group will be effected. same thing applies on the ELK instance/machine.
 - Run the playbook, and navigate to the ELK server from your web browser by typing "http://Ip-adress-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
