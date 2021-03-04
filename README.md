@@ -99,9 +99,10 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the elk-1.yml file to /etc/ansible directory.
-- Update the hosts file to include the hosts/machines you want to run the elk-1.yml ansible playbook on. In order to specify which machines the playbook will run on, we need to define groups in the hosts file and list the IP adresses of target machines under each group accordingly. for example the elk-1.yml playbook should run on Web-1 and Web2 VMs, in the hosts file we add the IP addresses of Web-1 and Web-2 under the [webservers] group. This way when elk-1.yml is executed, only machines under [webservers] group. We also have to update the ansible.cfg file by adding the "remote_user" user name in order to alow the ansible book to run on the remote machines (Web-1 and Web-2)
+- Update the hosts file to include the hosts/machines of the ansible playbook. For this ELK projects we created 2 groups: [elk] and [webservers]. The [elk] group is used in the elk-1.yml playbook and included the ELK instance/VM IP address, while the [webserver] group was used in the filebeat.yml and metricbeat.yml playbooks and inscluded web-1 and web2 VMs. We also updated the configuration file for each playbook: /etc/ansible.cfg, /etc/ansible/files/filebeat-config.yml, and /etc/ansible/files/hearbeat-config.yml to include the usernames of the targeted machines
 
-- For the ELK instance, we copied the filebeat.yml and metricbeat.yml to the /etc/ansible/roles and then we updated the hosts file to include a new group that is targeting the ELK instance only. The name of the group is [elk] and added the elk machine private ip address there. we also updated the filebeat-config.yml and metricbeat-config.yml under /etc/ansible/files and updated the hosts, username, and password fields innthese files to reflect the ELK machine details.
+- For the ELK instance, we copied the filebeat.yml and metricbeat.yml to the /etc/ansible/roles and then we updated the hosts file to include a new group . We also updated the filebeat-config.yml and metricbeat-config.yml under /etc/ansible/files and updated the hosts, username, and password fields to reflect the ELK machine details.
+
 - Run the playbook, and navigate to the ELK server from your web browser by typing "http://Public-IP-Address-of-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
 
 
