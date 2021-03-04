@@ -25,12 +25,12 @@ Load balancing ensures that the application will be highly Available, in additio
 
 Loadbalancers are crutial component in any secure network architecture due the security measures they bring to the network architecture. Loadbalancer will protect applications from any emerging threats, DoS attacks, and make sure the traffic is distributed among multiple servers to ensure availability, and enhance security by having the inbound traffic passes through the policies on the loadbalancer before being distibiuted further to the servers in the backend pool of the loadbalance.
 
-additionally we added a jump-box-provisioner VM which introduces another layer of security to the network architecture. The purpose of this jump box is to prevent any inbound traffic to the Web Vms directly. Any connection to the VMs can only be achived through the jump-box-provisioner VM.
+additionally we added a jump-box-provisioner VM which introduces another layer of security to the network architecture. The purpose of this jump box is to prevent any inbound traffic to the Web VMs directly. Any connection to the VMs can only be achived through the jump-box-provisioner VM.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the file system and periodically collect metrics from the operating system and from services running on the server (VM) .
 
-- The filebeat will watch for any changes in the file system of the VMs being monitored, it will centerlaize log data, 
-- The metricbeat will record detailed information about the operating system and services running on the VM . It will take all the metrics and statistics it collect and output this a dashboard
+- The filebeat will watch for any changes in the file system of the VMs being monitored, it will centerlaize and log data, 
+- The metricbeat will record detailed information about the operating system and services running on the VM . It will take all the metrics and statistics it collect and output this to a dashboard
 
 The configuration details of each machine may be found below.
 
@@ -49,7 +49,7 @@ Only the Jump-Box-Provisioner machine can accept connections from the Internet. 
 
 Machines within the network can only be accessed by Jump-Box-Provisioner.
 
-- Jump-Box-Provisioner with Ansible container instaleed on it, is the only machine allowed to access the ELK VMs 
+- Jump-Box-Provisioner with Ansible container installed on it, is the only machine allowed to access the ELK VMs 
 
 A summary of the access policies in place can be found in the table below.
 
@@ -63,7 +63,7 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible is used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it is simple, easy to be read by human, easy to write as it does not require coding skills, it is powerful as it helps IT admins to integrate and deploy apps, and mange configuration smoothly and easily, as easy as one click. Which in return increase the productivity and boost productions since it saves a lot of time and effort compared to manual deployment.
+Ansible is used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it is simple, easy to be read by human, easy to write as it does not require coding skills, it is powerful as it helps IT admins to integrate and deploy apps, and mange configurations smoothly and easily, as easy as one click. Which in return increase the productivity and boost productions since it saves a lot of time and effort compared to manual deployment.
 
 
 
@@ -90,7 +90,7 @@ We have installed the following Beats on these machines:
 
 These Beats allow us to collect the following information from each machine:
 
-- The filebeat will collect logfiles about the operating system and it support structured logs such as auditlogs, server logs, slow logs, and deprecation logs
+- The filebeat will collect logfiles about the operating system and it supports structured logs such as auditlogs, server logs, slow logs, and deprecation logs
 - The metricbeat is more focused on the system-level metrics. it collects and reports these system-level metrics
 Example heartbeat will monitor the uptime of the machine nad auditbeat willgive log data that can help in auditing user and process activity
 
@@ -99,9 +99,9 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the elk-1.yml file to /etc/ansible directory.
-- Update the hosts file to include the hosts/machines of the ansible playbook. For this ELK projects we created 2 groups: [elk] and [webservers]. The [elk] group is used in the elk-1.yml playbook and included the ELK instance/VM IP address, while the [webserver] group was used in the filebeat.yml and metricbeat.yml playbooks and inscluded web-1 and web2 VMs. We also updated the configuration file for each playbook: /etc/ansible.cfg, /etc/ansible/files/filebeat-config.yml, and /etc/ansible/files/hearbeat-config.yml to include the usernames of the targeted machines
+- Update the hosts file to include the hosts/machines of the ansible playbook. For this ELK projects we created 2 groups: [elk] and [webservers]. The [elk] group is used in the elk-1.yml playbook and include the ELK instance/VM IP address, while the [webserver] group was used in the filebeat.yml and metricbeat.yml playbooks and includes web-1 and web2 VMs. We also updated the configuration file for each playbook: /etc/ansible.cfg, /etc/ansible/files/filebeat-config.yml, and /etc/ansible/files/hearbeat-config.yml to include the usernames of the targeted machines
 
-- For the ELK instance, we copied the filebeat.yml and metricbeat.yml to the /etc/ansible/roles and then we updated the hosts file to include a new group . We also updated the filebeat-config.yml and metricbeat-config.yml under /etc/ansible/files and updated the hosts, username, and password fields to reflect the ELK machine details.
+- For the ELK instance, we copied the filebeat.yml and metricbeat.yml to the /etc/ansible/roles directory. We also updated the filebeat-config.yml and metricbeat-config.yml under /etc/ansible/files and updated the hosts, username, and password fields to reflect the ELK machine details.
 
 - Run the playbook, and navigate to the ELK server from your web browser by typing "http://Public-IP-Address-of-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
 
