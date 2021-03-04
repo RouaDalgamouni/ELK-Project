@@ -1,0 +1,5 @@
+$CurrentFolder = Get-Location
+$directory = Get-ChildItem $CurrentFolder
+foreach ($item in $directory) {
+	Get-Acl $item
+}
