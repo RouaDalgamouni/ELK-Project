@@ -61,7 +61,7 @@ A summary of the access policies in place can be found in the table below.
 | Web-2                |          No         | 10.0.0.4                        |
 | ELK-1                |         Yes         | 60.20.26.168 10.0.0.7 10.0.0.8  |
 
-|### Elk Configuration
+### Elk Configuration
 
 Ansible is used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it is simple, easy to be read by human, easy to write as it does not require coding skills, it is powerful as it helps IT admins to integrate and deploy apps, and mange configuration smoothly and easily, as easy as one click. Which in return increase the productivity and boost productions since it saves a lot of time and effort compared to manual deployment.
 
@@ -99,7 +99,9 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 - Copy the elk-1.yml file to /etc/ansible directory.
-- Update the hosts file to include the hosts/machines you want to run the ansible playbook on. In order to specify which machines the playbook will run on, we need to define groups in the hosts file and list the IP adresses of the machines under each group accordingly. for example the elk-1.yml playbook should be run on Web-1 and Web2 VMs, in the hosts file we add the IP addresses of Web-1 and Web-2 under the [webservers] group. This way when elk-1.yml is executed, only machines under [webserver] group will be effected. same thing applies on the ELK instance/machine.
-- Run the playbook, and navigate to the ELK server from your web browser by typing "http://IP-Address-of-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
+- Update the hosts file to include the hosts/machines you want to run the elk-1.yml ansible playbook on. In order to specify which machines the playbook will run on, we need to define groups in the hosts file and list the IP adresses of target machines under each group accordingly. for example the elk-1.yml playbook should run on Web-1 and Web2 VMs, in the hosts file we add the IP addresses of Web-1 and Web-2 under the [webservers] group. This way when elk-1.yml is executed, only machines under [webservers] group. We also have to update the ansible.cfg file by adding the "remote_user" user name in order to alow the ansible book to run on the remote machines (Web-1 and Web-2)
+
+For the ELK instance, we copied the filebeat.yml and metricbeat.yml to the /etc/ansible/roles and then we updated the hosts file to include a new group that is targeting the ELK instance only. The name of the group is [elk] and added the elk machine private ip address there. we also updated the filebeat-config.yml and metricbeat-config.yml under /etc/ansible/files and updated the hosts, username, and password fields innthese files to reflect the ELK machine details.
+- Run the playbook, and navigate to the ELK server from your web browser by typing "http://Public-IP-Address-of-ELK-Machine:5601/apps/kibana" to check that the installation worked as expected.
 
 
