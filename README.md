@@ -45,7 +45,7 @@ The configuration details of each machine may be found below.
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: My_Personal_Machine_IP_Address (60.20.26.168)
+Only the Jump-Box-Provisioner machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: My_Personal_Machine_IP_Address 
 
 Machines within the network can only be accessed by Jump-Box-Provisioner.
 
@@ -55,11 +55,11 @@ A summary of the access policies in place can be found in the table below.
 
 | Name                 | Publicly Accessible | Allowed IP Addresses            |
 |----------------------|---------------------|---------------------------------|
-| Jump-Box-Provisioner |         Yes         | 60.20.26.168                    |
+| Jump-Box-Provisioner |         Yes         | My_Personal_IP_Address
 | Load Balancer        |         Yes         | Any IP Address from Internet    |
 | Web-1                |          No         | 10.0.0.4                        |
 | Web-2                |          No         | 10.0.0.4                        |
-| ELK-1                |         Yes         | 60.20.26.168 10.0.0.7 10.0.0.8  |
+| ELK-1                |         Yes         | My_Personal_IP_Address 10.0.0.7 10.0.0.8  |
 
 ### Elk Configuration
 
